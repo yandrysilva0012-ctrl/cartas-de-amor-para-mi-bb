@@ -1,0 +1,68 @@
+<div class="interfaz-movil">
+  
+  <div class="fondo-rosas-sanvalentin"></div>
+  <div class="capa-brillo-romantico"></div>
+
+  <audio id="musica-fondo" loop></audio>
+
+  <div class="controles-musica">
+    <button class="btn-audio" id="btn-play" onclick="alternarMusica()">
+      <span id="icono-musica">🎵</span>
+    </button>
+  </div>
+
+  <div class="sobre-contenedor" id="sobre-contenedor" onclick="abrirSobre()">
+    <div class="sobre-postal">
+      <div class="solapa-triangulo"></div>
+      <div class="frente-sobre"></div>
+      <div class="sello-lacre-rojo">❤️</div>
+      <p class="texto-abrir">Toca para abrir tu regalo</p>
+    </div>
+  </div>
+
+  <div class="carta-contenedor" id="carta-contenedor">
+    <div class="tarjeta-floral">
+      
+      <div class="esquina-rosa sup-izq">🌹</div>
+      <div class="esquina-rosa sup-der">🌹</div>
+      <div class="esquina-rosa inf-izq">🌹</div>
+      <div class="esquina-rosa inf-der">🌹</div>
+      
+      <div class="contenido-paginas">
+        <div class="pagina-texto active" id="pag-1">
+          <h2 class="titulo-romantico">MI BLANQUITA DE OJOS HERMOSOS ❤️</h2>
+          <p class="texto-amor">El mundo exterior puede llegar a ser un caos absoluto, pero desde que estás a mi lado encontré mi lugar seguro. Eres esa paz que no cambio por nada en este universo.</p>
+          <button class="btn-siguiente" onclick="cambiarPagina(2)">Continuar...</button>
+        </div>
+
+        <div class="pagina-texto" id="pag-2">
+          <h2 class="titulo-romantico">Mi Destello Favorito ✨</h2>
+          <p class="texto-amor">Tienes esa hermosa capacidad de transformar el día más gris y ordinario en el momento más feliz de mi semana. Gracias por tus risas y por ser mi cómplice.</p>
+          <button class="btn-siguiente" onclick="cambiarPagina(3)">Continuar...</button>
+        </div>
+
+        <div class="pagina-texto" id="pag-3">
+          <h2 class="titulo-romantico">Siempre Juntos 🌹</h2>
+          <p class="texto-amor">No importa la distancia, el tiempo ni las circunstancias; mi mano encaja perfectamente con la tuya. Si volviera a nacer en mil vidas, en todas te buscaría.</p>
+          <button class="btn-siguiente" onclick="cambiarPagina(4)">Ver último...</button>
+        </div>
+
+        <div class="pagina-texto" id="pag-4">
+          <h2 class="titulo-romantico">Te Amo Infinitamente 💖</h2>
+          <p class="texto-amor">Tres letras, dos palabras, y un sentimiento eterno que abarca todo mi mundo. Gracias por existir y por hacerme tan feliz todos los días.</p>
+          <span class="firma-final">Por y para siempre.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dedicatorias-abajo">
+      <p class="frase-blanca-it">Te quiero mucho...</p>
+      <div class="brillo-sol-contenedor">
+        <p class="frase-sol-resaltada">Eres mi sol...</p>
+        <div class="aurora-destello"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lluvia-petalos" id="lluvia-petalos"></div>
+</div>

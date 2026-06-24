@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #4a0e17;
+  font-family: 'Georgia', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.interfaz-movil {
+  position: relative;
+  width: 100%;
+  max-width: 412px;
+  height: 100%;
+  max-height: 892px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fondo-rosas-sanvalentin {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop') no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.capa-brillo-romantico {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(74, 14, 23, 0.2) 40%, rgba(20, 2, 5, 0.8) 90%);
+  z-index: 2;
+}
+
+.sobre-contenedor {
+  position: absolute;
+  width: 310px;
+  height: 210px;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s ease;
+}
+
+.sobre-postal {
+  position: relative;
+  width: 100%; height: 100%;
+  background-color: #fff9f9;
+  border: 3px solid #f3d1d6;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.solapa-triangulo {
+  position: absolute;
+  top: -2px; left: -2px;
+  width: 0; height: 0;
+  border-left: 154px solid transparent;
+  border-right: 154px solid transparent;
+  border-top: 110px solid #ffeef0;
+  transform-origin: top;
+  transition: transform 0.6s ease;
+  z-index: 3;
+}
+
+.frente-sobre {
+  position: absolute;
+  bottom: -2px; left: -2px;
+  width: 0; height: 0;
+  border-left: 154px solid #fff5f6;
+  border-right: 154px solid #fff5f6;
+  border-bottom: 114px solid #fcdbdf;
+  border-top: 100px solid transparent;
+  z-index: 2;
+}
+
+.sello-lacre-rojo {
+  position: absolute;
+  top: 102px; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px; height: 52px;
+  background: radial-gradient(circle, #d63031 60%, #b2bec3 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  z-index: 4;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.texto-abrir {
+  position: absolute;
+  bottom: 22px; width: 100%;
+  text-align: center;
+  color: #ba5d6a;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: bold;
+  z-index: 5;
+}
+
+.sobre-contenedor.abrir-anim .solapa-triangulo { transform: rotateX(180deg); z-index: 1; }
+.sobre-contenedor.abrir-anim { transform: translateY(-400px) scale(0.5); opacity: 0; pointer-events: none; }
+
+.carta-contenedor {
+  position: relative;
+  width: 88%; height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.1) 0.4s, opacity 0.7s ease 0.4s;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.carta-contenedor.activo { opacity: 1; transform: translateY(0); pointer-events: all; }
+
+.tarjeta-floral {
+  position: relative;
+  width: 100%; height: 60%;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+  border: 3px solid #ffccd3;
+}
+
+.esquina-rosa {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0.95;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.sup-izq { top: 12px; left: 12px; }
+.sup-der { top: 12px; right: 12px; }
+.inf-izq { bottom: 12px; left: 12px; }
+.inf-der { bottom: 12px; right: 12px; }
+
+.contenido-paginas { position: relative; width: 100%; height: 100%; }
+.pagina-texto { display: none; text-align: center; opacity: 0; }
+
+.pagina-texto.active {
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  height: 100%; opacity: 1;
+  animation: entradaSuave 0.4s ease-out forwards;
+}
+
+@keyframes entradaSuave {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.titulo-romantico { font-size: 1.25rem; color: #c0392b; margin-bottom: 12px; font-weight: bold; letter-spacing: 0.5px; line-height: 1.3; }
+.texto-amor { font-size: 0.95rem; line-height: 1.6; color: #2d3436; margin-bottom: 15px; font-family: sans-serif; }
+.btn-siguiente { background: linear-gradient(135deg, #ff7675 0%, #ff8787 100%); border: none; padding: 8px 24px; border-radius: 20px; color: white; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(255,118,117,0.3); }
+.firma-final { font-style: italic; color: #b2bec3; font-weight: bold; margin-top: 5px; font-size: 0.9rem; }
+
+.dedicatorias-abajo { width: 100%; text-align: center; margin-bottom: 35px; z-index: 4; }
+.frase-blanca-it { font-size: 1.6rem; color: #ffffff; font-style: italic; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 5px; }
+.brillo-sol-contenedor { position: relative; display: inline-block; }
+.frase-sol-resaltada { font-size: 2.1rem; font-weight: bold; color: #ffffff; text-shadow: 0px 0px 8px rgba(255,255,255,0.9); z-index: 3; position: relative; }
+
+.aurora-destello {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(255,234,117,0.9) 0%, rgba(255,234,117,0.3) 45%, transparent 75%);
+  z-index: 1; animation: latidoSol 3s ease-in-out infinite;
+}
+
+@keyframes latidoSol {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.95; }
+}
+
+.controles-musica { position: absolute; bottom: 20px; right: 20px; z-index: 20; }
+.btn-audio { width: 44px; height: 44px; background: #ffffff; border: none; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 18px; }
+
+.lluvia-petalos { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 6; }
+.petalo { position: absolute; background-color: #ff7675; border-radius: 15px 2px 15px 2px; opacity: 0.85; animation: caer linear infinite; }
+@keyframes caer {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.9; }
+  90% { opacity: 0.9; }
+  100% { transform: translateY(900px) rotate(380deg); opacity: 0; }
+}
